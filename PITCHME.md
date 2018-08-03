@@ -207,88 +207,88 @@ Channels can be closed
 ---
 ## Writing Tests
 
-    package dm_test
+```go
+package dm_test
 
-    import "github.com/siadat/dm"
+import "github.com/siadat/dm"
 
-    func TestDownload(t *test.T) {
-        _, err := dm.Download("http://www.google.com")
-        if err != nil {
-            t.Fatal(err)
-        }
+func TestDownload(t *test.T) {
+    _, err := dm.Download("http://bing.com")
+    if err != nil {
+        t.Fatal(err)
     }
+}
+```
 
 ---
 
 ## Writing Tests
 
-    func TestDownload(t *test.T) {
-        _, err := dm.Download("http://www.google.com")
-        if err != nil {
-            t.Fatal(err)
-        }
-    }
+Let's focus on the test
 
-(Same code without the import lines)
+```go
+    _, err := dm.Download("http://bing.com")
+    if err != nil {
+        t.Fatal(err)
+    }
+```
 
 ---
 
 ## Writing Tests
 
-    func TestDownload(t *test.T) {
-        _, err := dm.Download("url1")
-        if err != nil {
-            t.Fatal(err)
-        }
-
-        _, err := dm.Download("url2")
-        if err != nil {
-            t.Fatal(err)
-        }
+```go
+    _, err := dm.Download("http://bing.com")
+    if err != nil {
+        t.Fatal(err)
     }
+
+    _, err := dm.Download("http://google.com")
+    if err != nil {
+        t.Fatal(err)
+    }
+```
 
 ---
 
 ## Writing Tests
 
-    func TestDownload(t *test.T) {
+```go
+    testTable := []struct{
+        url string
+    }{
+        {url: "http://bing.com"},
+        {url: "http://google.com"},
+    }
 
-        testTable := []struct{
-            url string
-        }{
-            {url: "url1"},
-            {url: "url2"},
-        }
-
-        for _, tc := range testTable {
-            _, err := dm.Download(tc.url)
-            if err != nil {
-                t.Fatal(err)
-            }
+    for _, tc := range testTable {
+        _, err := dm.Download(tc.url)
+        if err != nil {
+            t.Fatal(err)
         }
     }
+```
 
 ---
 
 ## Writing Tests
 
-    func TestDownload(t *test.T) {
+```go
+    testTable := []struct{
+        url string
+    }{
+        {url: "http://bing.com", err: nil},
+        {url: "http://google.com", err: nil},
+        {url: "badURL", err: fmt.Errorf("failed")},
+    }
 
-        testTable := []struct{
-            url string
-        }{
-            {url: "url1", err: nil},
-            {url: "url2", err: nil},
-            {url: "badURL", err: fmt.Errorf("failed")},
-        }
-
-        for _, tc := range testTable {
-            _, err := dm.Download(tc.url)
-            if err != tc.err {
-                t.Fatal(err)
-            }
+    for _, tc := range testTable {
+        _, err := dm.Download(tc.url)
+        if err != tc.err {
+            t.Fatal(err)
         }
     }
+```
 
 ---
 
@@ -296,17 +296,23 @@ Channels can be closed
 
 Using testify
 
-    import "github.com/stretchr/testify/require"
+```go
+import "github.com/stretchr/testify/require"
+```
 
 Replace
 
+```go
     if err != tc.err {
         t.Fatal(err)
     }
+```
 
 With
 
+```go
     require.NoError(t, err)
+```
 
 ---
 
