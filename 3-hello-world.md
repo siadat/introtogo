@@ -83,3 +83,45 @@ A program that uses it
     [4]     }
     [5]     fmt.Println(s)
     [3] }
+
+---
+
+## Struct
+
+* Data
+* Behavior
+
+---
+
+## Struct
+
+Struct definition
+
+    type Work struct {
+        Name string
+        Inputs []float64
+    }
+
+---
+
+## Struct
+
+Method definition
+
+    func (w Work) Perform() {
+        // ...
+    }
+
+---
+
+## Interface
+
+* Behavior, only
+
+---
+
+## Interface
+
+    type Work {
+        Perform()
+    }

@@ -18,4 +18,3 @@ Sina Siadat
 3.  Hello World!
 4.  Writing tests
 5.  Concurrency
-6.  Interfaces
