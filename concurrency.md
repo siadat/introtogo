@@ -26,23 +26,16 @@ go DoWork()
 ## Goroutines
 
 * Think of it as **lightweight threads**
-* Go runtime has its own scheduler, fewer kernel context-switch
+* Go runtime has its own scheduler
+* Fewer kernel context switches
 
 ---
 
 ## Channel
 
-* Based on Tony Hoare's CSP (1977)
 * Think of it as a **broker**
-* Buffer size is the number of items it can hold
-
----
-
-## Channel
-
-* Goroutine-safe
-* Connects senders and receivers
-* Has a buffer size
+* Buffer size = number of items it can hold
+* Based on Tony Hoare's CSP (1977)
 
 ---
 
