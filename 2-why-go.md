@@ -6,8 +6,12 @@
 * Good at concurrency
 * Good at networking and building distributed systems
 * Garbage Collected: Dijkstra's On-the-fly algorithm, sub-millisecond stop-the-world
-* Great tooling: easy AST, goimports, gofmt, golint, go test, guru, etc
+* Great tooling: gofmt, golint, go test, guru, goimports, easy AST, etc
 * 100% written in Go
+
+---
+
+## Tools: gofmt
 
 ---
 
@@ -20,19 +24,14 @@
 
 ## Go is a small language
 
+(natije in shod ke...)
+(barame nevisi 2 no' faaliat ast, khoondan va neveshtan)
+
 * Easy to learn
 * Hard to make mistakes
 * Easy to read, as opposed to write (eg Ruby)
 
 ---
-
-    XXXDELETE ## Keywords in Go
-    XXXDELETE
-    XXXDELETE     break        default      func         interface    select
-    XXXDELETE     case         defer        go           map          struct
-    XXXDELETE     chan         else         goto         package      switch
-    XXXDELETE     const        fallthrough  if           range        type
-    XXXDELETE     continue     for          import       return       var
 
 ## Keywords in other languages
 

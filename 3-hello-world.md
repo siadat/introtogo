@@ -12,56 +12,14 @@ A complete program at $GOPATH/src/github.com/siadat/hellopkg/hello.go
 
 ---
 
-From terminal
+Build and run
 
     $ go run hello.go
-
-Output
-
     hello world
 
 ---
 
-Alternative 1:
-
-    $ go build hello.go
-    $ ./hello
-
-Alternative 2:
-
-    $ go install github.com/siadat/hellopkg
-    $ $GOPATH/bin/hellopkg
-
-Alternative 3:
-
-    $ go install
-    $ $GOPATH/bin/hellopkg
-
-Alternative 4:
-
-    $ go install .
-    $ $GOPATH/bin/hellopkg
-
-Alternative 5:
-
-    $ go install ./...
-    $ $GOPATH/bin/hellopkg
-
-Alternative 6:
-
-    $ go install github.com/siadat/hellopkg/...
-    $ $GOPATH/bin/hellopkg
-
-Alternative 7:
-
-Downloading and installing from the Internet
-
-    $ go get github.com/siadat/hellopkg
-    $ $GOPATH/bin/hellopkg
-
----
-
-A library package at $GOPATH/src/github.com/siadat/dm/dm.go
+(explain the package creation and dm return values)
 
     [3] package dm
     [3]
@@ -69,20 +27,48 @@ A library package at $GOPATH/src/github.com/siadat/dm/dm.go
     [2]     return "", fmt.Errorf("not implemented")
     [1] }
 
+---
+
+Package `dm` is located at
+
+    $HOME/go/src/github.com/siadat/dm/dm.go
+
+---
+
 A program that uses it
 
-    [7] package main
-    [7]
-    [6] import "fmt"
-    [2] import "github.com/siadat/dm"
-    [6]
-    [3] func main() {
-    [1]     s, err := dm.Download("http://www.google.com")
-    [4]     if err != nil {
-    [4]         panic(err)
-    [4]     }
-    [5]     fmt.Println(s)
-    [3] }
+    package main
+
+    import "fmt"
+    import "github.com/siadat/dm"
+
+    func main() {
+        dm.Download("http://www.google.com")
+    }
+
+---
+
+A program that uses it
+
+    package main
+
+    import "fmt"
+    import "github.com/siadat/dm"
+
+    func main() {
+        html, err := dm.Download("http://www.google.com")
+        if err != nil {
+            panic(err)
+        }
+        fmt.Println(html)
+    }
+
+---
+
+## Pointers
+
+* No pointer arithmatics
+* C-style operators `*` and `&`
 
 ---
 
@@ -98,7 +84,7 @@ A program that uses it
 Struct definition
 
     type Work struct {
-        Name string
+        State  string
         Inputs []float64
     }
 
@@ -114,9 +100,44 @@ Method definition
 
 ---
 
+## Struct
+
+Method definition, pointer receiver
+
+    func (w *Work) Perform() {
+        w.State = "new-state"
+    }
+
+---
+
+## Slices
+
+* An abstraction on top of arrays
+
+
+    var s []int // a "slice of ints"
+    var s [10]int // an "array of ints"
+
+---
+
+## Slices
+
+* Can grow
+* Passed by reference
+
+---
+
 ## Interface
 
 * Behavior, only
+
+---
+
+fmt.Print says:
+
+* "I need a value that has method `func (T) Write([]byte) (int, error)"
+* "I don't care about its concrete types"
+* It can be
 
 ---
 

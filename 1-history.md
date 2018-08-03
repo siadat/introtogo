@@ -12,7 +12,6 @@
 
 ### Version 2
 
-* 1977: Tony Hoare's influential paper on Communicating Sequential Processes
 * 1980: Rob Pike designed Newsqueak
 * 1995: Rob Pike designed Limbo
 * 2003: Rob Pike designed Sawzall
