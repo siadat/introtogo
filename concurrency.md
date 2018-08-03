@@ -11,11 +11,15 @@ Goroutines are easy.
 
 Change
 
-    DoWork()
+```go
+DoWork()
+```
 
 To
 
-    go DoWork()
+```go
+go DoWork()
+```
 
 ---
 
@@ -46,28 +50,38 @@ To
 
 Create a channel
 
-    ch := make(chan float64)
+```go
+ch := make(chan float64)
+```
 
 or
 
-    ch := make(chan float64, 0)
+```go
+ch := make(chan float64, 0)
+```
 
 ---
 
 ## Channel
 
-    ch := make(chan Work)
+```go
+ch := make(chan Work)
+```
 
 Where
 
-    type Work struct {
-      Name   string
-      Inputs []float64
-    }
+```go
+type Work struct {
+  Name   string
+  Inputs []float64
+}
+```
 
 or
 
-    ch := make(chan struct{})
+```go
+ch := make(chan struct{})
+```
 
 ---
 
@@ -75,26 +89,29 @@ or
 
 Sending to channel
 
-    ch <- 3.14
+```go
+ch <- 3.14
+```
 
 ---
 
 Receiving from channel
 
-    variable := <- ch
-
----
-
-## Channel
-
-* Sender: blocked when no receiver
-* Receiver: blocked when no sender
+```go
+variable := <- ch
+```
 
 ---
 
 ## Buffered Channel
 
-    ch := make(chan int, 10)
+```go
+ch := make(chan int, 10)
+```
+
+---
+
+## Buffered Channel
 
 * Sender: blocked when filled
 * Receiver: blocked when empty

@@ -19,19 +19,17 @@ Sina Siadat
 ---
 ## Why Go
 
-Because Go is a **small** language!
+Because Go is a **small** language
 
 ---
 
 ## Why Go
 
-Keywords in different languages
+Keyword count in different languages
 
 * 25 Go
-* 26 Erlang
 * 32 C
 * 33 Python
-* 36 Ruby
 * 50 Java
 * 52 Rust
 * 89 Swift
@@ -56,29 +54,35 @@ Other reasons
 * Statically typed
 * Fast builds
 * Great performance
-* Garbage Collected: Dijkstra's On-the-fly algorithm, sub-millisecond stop-the-world
-* Great tooling: gofmt, golint, go test, guru, goimports, easy AST, etc
+* Garbage Collected: Dijkstra's On-the-fly algorithm
+* Good tooling: gofmt, golint, etc
 * 100% written in Go
 
 ---
 ## Hello world
 
-A complete program at $GOPATH/src/hellopkg/hello.go
+```go
+package main
 
-    package main
+import "fmt"
 
-    import "fmt"
+func main() {
+    fmt.Println("hello world!")
+}
+```
 
-    func main() {
-        fmt.Println("hello world!")
-    }
+A complete program at
+
+    $GOPATH/src/hellopkg/hello.go
 
 ---
 
 ### Build and run
 
-    $ go run hello.go
-    hello world!
+```shell
+$ go run hello.go
+hello world!
+```
 
 ---
 ## Concurrency
@@ -94,11 +98,15 @@ Goroutines are easy.
 
 Change
 
-    DoWork()
+```go
+DoWork()
+```
 
 To
 
-    go DoWork()
+```go
+go DoWork()
+```
 
 ---
 
@@ -129,28 +137,38 @@ To
 
 Create a channel
 
-    ch := make(chan float64)
+```go
+ch := make(chan float64)
+```
 
 or
 
-    ch := make(chan float64, 0)
+```go
+ch := make(chan float64, 0)
+```
 
 ---
 
 ## Channel
 
-    ch := make(chan Work)
+```go
+ch := make(chan Work)
+```
 
 Where
 
-    type Work struct {
-      Name   string
-      Inputs []float64
-    }
+```go
+type Work struct {
+  Name   string
+  Inputs []float64
+}
+```
 
 or
 
-    ch := make(chan struct{})
+```go
+ch := make(chan struct{})
+```
 
 ---
 
@@ -158,26 +176,29 @@ or
 
 Sending to channel
 
-    ch <- 3.14
+```go
+ch <- 3.14
+```
 
 ---
 
 Receiving from channel
 
-    variable := <- ch
-
----
-
-## Channel
-
-* Sender: blocked when no receiver
-* Receiver: blocked when no sender
+```go
+variable := <- ch
+```
 
 ---
 
 ## Buffered Channel
 
-    ch := make(chan int, 10)
+```go
+ch := make(chan int, 10)
+```
+
+---
+
+## Buffered Channel
 
 * Sender: blocked when filled
 * Receiver: blocked when empty
@@ -200,7 +221,7 @@ Channels can be closed
     import "github.com/siadat/dm"
 
     func TestDownload(t *test.T) {
-        _, err := dm.Download("url")
+        _, err := dm.Download("http://www.google.com")
         if err != nil {
             t.Fatal(err)
         }
@@ -216,7 +237,7 @@ Channels can be closed
     import "github.com/stretchr/testify/require"
 
     func TestDownload(t *test.T) {
-        _, err := dm.Download("url")
+        _, err := dm.Download("http://www.google.com")
         require.NoError(t, err)
     }
 
@@ -230,7 +251,7 @@ Channels can be closed
     import "github.com/stretchr/testify/require"
 
     func TestDownload(t *test.T) {
-        _, err := dm.Download("url")
+        _, err := dm.Download("http://www.google.com")
         require.NoError(t, err, "Download failed")
     }
 
@@ -246,8 +267,8 @@ Channels can be closed
     import "github.com/stretchr/testify/require"
 
     func TestDownload(t *test.T) {
-        _, err := dm.Download("url")
-        require.NoError(t, err, fmt.Sprintf("Downloading %s failed", "url"))
+        _, err := dm.Download("http://www.google.com")
+        require.NoError(t, err, fmt.Sprintf("Downloading %s failed", "http://www.google.com"))
     }
 
 ---
@@ -330,9 +351,10 @@ Channels can be closed
 ---
 ## Further resources
 
-* #Must **Tour of Go** at https://tour.golang.org
-* #Book **The Go Programming Language** book by D&K
-* #Video **JustForFunc** YouTube series
+* **Tour of Go** at https://tour.golang.org
+* **The Go Programming Language** book
+* **Communicating Sequential Processes** Tony Hoare (1977)
+* **JustForFunc** YouTube series
 
 ---
 

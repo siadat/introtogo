@@ -1,20 +1,26 @@
 ## Hello world
 
-A complete program at $GOPATH/src/hellopkg/hello.go
+```go
+package main
 
-    package main
+import "fmt"
 
-    import "fmt"
+func main() {
+    fmt.Println("hello world!")
+}
+```
 
-    func main() {
-        fmt.Println("hello world!")
-    }
+A complete program at
+
+    $GOPATH/src/hellopkg/hello.go
 
 ---
 
 ### Build and run
 
-    $ go run hello.go
-    hello world!
+```shell
+$ go run hello.go
+hello world!
+```
 
 ---

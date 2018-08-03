@@ -5,7 +5,7 @@
     import "github.com/siadat/dm"
 
     func TestDownload(t *test.T) {
-        _, err := dm.Download("url")
+        _, err := dm.Download("http://www.google.com")
         if err != nil {
             t.Fatal(err)
         }
@@ -21,7 +21,7 @@
     import "github.com/stretchr/testify/require"
 
     func TestDownload(t *test.T) {
-        _, err := dm.Download("url")
+        _, err := dm.Download("http://www.google.com")
         require.NoError(t, err)
     }
 
@@ -35,7 +35,7 @@
     import "github.com/stretchr/testify/require"
 
     func TestDownload(t *test.T) {
-        _, err := dm.Download("url")
+        _, err := dm.Download("http://www.google.com")
         require.NoError(t, err, "Download failed")
     }
 
@@ -51,8 +51,8 @@
     import "github.com/stretchr/testify/require"
 
     func TestDownload(t *test.T) {
-        _, err := dm.Download("url")
-        require.NoError(t, err, fmt.Sprintf("Downloading %s failed", "url"))
+        _, err := dm.Download("http://www.google.com")
+        require.NoError(t, err, fmt.Sprintf("Downloading %s failed", "http://www.google.com"))
     }
 
 ---
