@@ -370,6 +370,8 @@ With
 
 ## fin
 
-* Thank you
+* Thank you!
+
+Slides at [gitpitch.com/siadat/introtogo](https://gitpitch.com/siadat/introtogo)
 
 ---
