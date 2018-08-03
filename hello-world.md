@@ -1,46 +1,48 @@
 ## Hello World
 
-A complete program at $GOPATH/src/github.com/siadat/hellopkg/hello.go
+A complete program at $GOPATH/src/hellopkg/hello.go
 
-    [1] package main
-    [4]
-    [4] import "fmt"
-    [4]
-    [2] func main() {
-    [3]     fmt.Println("hello world")
-    [2] }
+    package main
+
+    import "fmt"
+
+    func main() {
+        fmt.Println("hello world!")
+    }
 
 ---
 
-Build and run
+### Build and run
 
     $ go run hello.go
-    hello world
+    hello world!
 
 ---
 
-(explain the package creation and dm return values)
+### Create a package
 
-    [3] package dm
-    [3]
-    [1] func Download(url string) (string, error) {
-    [2]     return "", fmt.Errorf("not implemented")
-    [1] }
+    package dm
+
+    func Download(url string) (string, error) {
+        return "", fmt.Errorf("not implemented")
+    }
+
+---
+
+### Save to
+
+    $HOME/go/src/projects/dm/dm.go
 
 ---
 
-Package `dm` is located at
-
-    $HOME/go/src/github.com/siadat/dm/dm.go
-
----
+### Using `dm.Download`
 
 A program that uses it
 
     package main
 
     import "fmt"
-    import "github.com/siadat/dm"
+    import "projects/dm"
 
     func main() {
         dm.Download("http://www.google.com")
@@ -48,12 +50,14 @@ A program that uses it
 
 ---
 
+### Using `dm.Download`
+
 A program that uses it
 
     package main
 
     import "fmt"
-    import "github.com/siadat/dm"
+    import "projects/dm"
 
     func main() {
         html, err := dm.Download("http://www.google.com")
@@ -62,13 +66,6 @@ A program that uses it
         }
         fmt.Println(html)
     }
-
----
-
-## Pointers
-
-* No pointer arithmatics
-* C-style operators `*` and `&`
 
 ---
 
@@ -146,3 +143,12 @@ fmt.Print says:
     type Work {
         Perform()
     }
+
+---
+
+## Pointers
+
+* No pointer arithmatics
+* C-style operators `*` and `&`
+
+---
