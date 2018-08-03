@@ -40,15 +40,13 @@ Keyword count in different languages
 
 ## Why Go
 
-* Because Go is a **small** language
-* Which makes it **easy to read**
-* And **human mistakes happen less often**
+Because Go is **easy to read** (explicit, gofmt)
 
 ---
 
 ## Why Go
 
-Other reasons
+More reasons?
 
 * Good at concurrency
 * Statically typed
@@ -150,12 +148,14 @@ Where
 
 ```go
 type Work struct {
-  Name   string
+  State   string
   Inputs []float64
 }
 ```
 
-or
+---
+
+## Channel
 
 ```go
 ch := make(chan struct{})
@@ -172,6 +172,8 @@ ch <- 3.14
 ```
 
 ---
+
+## Channel
 
 Receiving from channel
 

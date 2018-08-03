@@ -21,15 +21,13 @@ Keyword count in different languages
 
 ## Why Go
 
-* Because Go is a **small** language
-* Which makes it **easy to read**
-* And **human mistakes happen less often**
+Because Go is **easy to read** (explicit, gofmt)
 
 ---
 
 ## Why Go
 
-Other reasons
+More reasons?
 
 * Good at concurrency
 * Statically typed
