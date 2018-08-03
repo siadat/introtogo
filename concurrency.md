@@ -1,8 +1,21 @@
 ## Concurrency
 
-* Few concepts
-* Goroutines: easy **paralellism**
-* Channels: powerful **coordination**
+* Parallelism
+* Concurrency
+
+---
+
+## Concurrency
+
+Goroutines are easy.
+
+Change
+
+    DoWork()
+
+To
+
+    go DoWork()
 
 ---
 
@@ -15,7 +28,7 @@
 
 ## Channel
 
-* Based on Tony Hoare's CSP, 1977
+* Based on Tony Hoare's CSP (1977)
 * Think of it as a **broker**
 * Buffer size is the number of items it can hold
 
@@ -37,6 +50,12 @@ Create a channel
 
 or
 
+    ch := make(chan float64, 0)
+
+---
+
+## Channel
+
     ch := make(chan Work)
 
 Where
@@ -54,12 +73,6 @@ or
 
 ## Channel
 
-    ch := make(chan float64)
-
----
-
-## Channel
-
 Sending to channel
 
     ch <- 3.14
@@ -72,7 +85,16 @@ Receiving from channel
 
 ---
 
+## Channel
+
+* Sender: blocked when no receiver
+* Receiver: blocked when no sender
+
+---
+
 ## Buffered Channel
+
+    ch := make(chan int, 10)
 
 * Sender: blocked when filled
 * Receiver: blocked when empty
@@ -85,52 +107,6 @@ Channels can be closed
 
 * Receivers receive a zero-value
 * Senders panic
+* Closers panic
 
 ---
-
-## Example
-
-    func f(url string) (string, error) {
-        response, err := http.Get(url)
-        if err != nil {
-        	return "", err
-        }
-        body, err := ioutil.ReadAll(response.Body)
-        return string(body), err
-    }
-
----
-
-    func main() {
-        f()
-    }
-
----
-
-    func main() {
-        go f()
-        // will exit in 0s
-    }
-
----
-
-    func main() {
-        go f()
-        go f()
-        go f()
-    }
-
----
-
-No goroute handler
-
----
-
-> Do not communicate by sharing memory; instead, share memory by communicating.
-
----
-
-    go f()
-    go f()
-    go f()
-    chan

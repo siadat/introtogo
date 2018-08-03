@@ -12,11 +12,8 @@ Sina Siadat
 
 * [Why Go](/why-go.md)
 * [Hello World!](/hello-world.md)
-* [Writing tests](/writing-tests.md)
 * [Concurrency](/concurrency.md)
-* [Tools](/tools.md)
+* [Writing tests](/writing-tests.md)
 * [The End](/99-fin.md)
 
-## Not covered
-
-* [History of Go](/history.md)
+---

@@ -40,3 +40,5 @@ Other reasons
 * Garbage Collected: Dijkstra's On-the-fly algorithm, sub-millisecond stop-the-world
 * Great tooling: gofmt, golint, go test, guru, goimports, easy AST, etc
 * 100% written in Go
+
+---
