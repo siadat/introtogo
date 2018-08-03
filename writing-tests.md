@@ -108,7 +108,11 @@ Using testify
 import "github.com/stretchr/testify/require"
 ```
 
-Replace
+---
+
+## Writing Tests
+
+Using testify, replace
 
 ```go
     if err != tc.err {

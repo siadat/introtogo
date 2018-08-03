@@ -21,6 +21,78 @@ go DoWork()
 
 ---
 
+## Concurrency
+
+Anonymous functions. Just change
+
+```go
+func() {
+    // ...
+}()
+```
+
+To
+
+```go
+go func() {
+    // ...
+}()
+```
+
+---
+
+## Concurrency: quiz
+
+What is the output of this program?
+
+```go
+func main() {
+  for i := 0; i < 10; i++ {
+  	go func() {
+  		fmt.Println(i)
+  	}()
+  }
+}
+```
+
+---
+
+## Concurrency: quiz
+
+```go
+func main() {
+  var wg sync.WaitGroup
+  for i := 0; i < 10; i++ {
+  	wg.Add(1)
+  	go func() {
+  		defer wg.Done()
+  		fmt.Println(i)
+  	}()
+  }
+  wg.Wait()
+}
+```
+
+---
+
+## Concurrency: quiz
+
+```go
+func main() {
+  var wg sync.WaitGroup
+  for i := 0; i < 10; i++ {
+  	wg.Add(1)
+  	go func(i int) {
+  		defer wg.Done()
+  		fmt.Println(i)
+  	}(i)
+  }
+  wg.Wait()
+}
+```
+
+---
+
 ## Goroutines
 
 * Think of it as **lightweight threads**
@@ -98,6 +170,18 @@ variable := <- ch
 
 ---
 
+## Channel
+
+Receiving from channel, until it is closed
+
+```go
+for variable := range ch {
+  // ...
+}
+```
+
+---
+
 ## Buffered Channel
 
 ```go
@@ -110,15 +194,5 @@ ch := make(chan int, 10)
 
 * Sender: blocked when filled
 * Receiver: blocked when empty
-
----
-
-## Channel
-
-Channels can be closed
-
-* Receivers receive a zero-value
-* Senders panic
-* Closers panic
 
 ---
