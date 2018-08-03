@@ -7,9 +7,7 @@
 
 ## Concurrency
 
-Goroutines are easy.
-
-Change
+Goroutines are easy. Just change
 
 ```go
 DoWork()

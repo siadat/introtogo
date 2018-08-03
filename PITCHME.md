@@ -94,9 +94,7 @@ hello world!
 
 ## Concurrency
 
-Goroutines are easy.
-
-Change
+Goroutines are easy. Just change
 
 ```go
 DoWork()
@@ -224,97 +222,34 @@ Channels can be closed
 
 ## Writing Tests
 
-    package dm_test
-
-    import "github.com/siadat/dm"
-    import "github.com/stretchr/testify/require"
-
     func TestDownload(t *test.T) {
         _, err := dm.Download("http://www.google.com")
-        require.NoError(t, err)
+        if err != nil {
+            t.Fatal(err)
+        }
     }
+
+(Same code without the import lines)
 
 ---
 
 ## Writing Tests
-
-    package dm_test
-
-    import "github.com/siadat/dm"
-    import "github.com/stretchr/testify/require"
-
-    func TestDownload(t *test.T) {
-        _, err := dm.Download("http://www.google.com")
-        require.NoError(t, err, "Download failed")
-    }
-
----
-
-## Writing Tests
-
-    package dm_test
-
-    import "fmt"
-
-    import "github.com/siadat/dm"
-    import "github.com/stretchr/testify/require"
-
-    func TestDownload(t *test.T) {
-        _, err := dm.Download("http://www.google.com")
-        require.NoError(t, err, fmt.Sprintf("Downloading %s failed", "http://www.google.com"))
-    }
-
----
-
-## Writing Tests
-
-    package dm_test
-
-    import "fmt"
-
-    import "github.com/siadat/dm"
-    import "github.com/stretchr/testify/require"
 
     func TestDownload(t *test.T) {
         _, err := dm.Download("url1")
-        require.NoError(t, err, fmt.Sprintf("Downloading %s failed", "url1"))
+        if err != nil {
+            t.Fatal(err)
+        }
 
-        _, err = dm.Download("url2")
-        require.NoError(t, err, fmt.Sprintf("Downloading %s failed", "url2"))
+        _, err := dm.Download("url2")
+        if err != nil {
+            t.Fatal(err)
+        }
     }
 
 ---
 
 ## Writing Tests
-
-    package dm_test
-
-    import "fmt"
-
-    import "github.com/siadat/dm"
-    import "github.com/stretchr/testify/require"
-
-    func TestDownload(t *test.T) {
-        _, err := dm.Download("url1")
-        require.NoError(t, err, fmt.Sprintf("Downloading %s failed", "url1"))
-
-        _, err = dm.Download("url2")
-        require.NoError(t, err, fmt.Sprintf("Downloading %s failed", "url2"))
-
-        _, err = dm.Download("url3")
-        require.NoError(t, err, fmt.Sprintf("Downloading %s failed", "url3"))
-    }
-
----
-
-## Writing Tests
-
-    package dm_test
-
-    import "fmt"
-
-    import "github.com/siadat/dm"
-    import "github.com/stretchr/testify/require"
 
     func TestDownload(t *test.T) {
 
@@ -323,23 +258,64 @@ Channels can be closed
         }{
             {url: "url1"},
             {url: "url2"},
-            {url: "url3"},
         }
 
         for _, tc := range testTable {
             _, err := dm.Download(tc.url)
-            require.NoError(t, err, fmt.Sprintf("Downloading %s failed", tc.url))
+            if err != nil {
+                t.Fatal(err)
+            }
         }
     }
 
 ---
 
+## Writing Tests
+
+    func TestDownload(t *test.T) {
+
+        testTable := []struct{
+            url string
+        }{
+            {url: "url1", err: nil},
+            {url: "url2", err: nil},
+            {url: "badURL", err: fmt.Errorf("failed")},
+        }
+
+        for _, tc := range testTable {
+            _, err := dm.Download(tc.url)
+            if err != tc.err {
+                t.Fatal(err)
+            }
+        }
+    }
+
+---
+
+## Writing Tests
+
+Using testify
+
+    import "github.com/stretchr/testify/require"
+
+Replace
+
+    if err != tc.err {
+        t.Fatal(err)
+    }
+
+With
+
+    require.NoError(t, err)
+
+---
+
 ## Writing Tests summary
 
-* Test everything that can go wrong
-* Automate tests in your Continuous Integration (CI)
 * Use **test tables**
 * Use **testify** from github.com/stretchr/testify
+* Test everything that can go wrong
+* Automate tests in your Continuous Integration (CI)
 
 ---
 ## Further resources
