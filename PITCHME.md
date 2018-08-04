@@ -74,7 +74,7 @@ A complete program at
 ### Build and run
 
 * build
-* run
+* execute
 
 ```shell
 $ go run hello.go
