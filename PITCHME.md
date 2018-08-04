@@ -19,7 +19,9 @@ Sina Siadat
 ---
 ## Why Go
 
-Because Go is a **small** language
+* Go is a **small** language
+* Few features
+* Go is **easy to read**
 
 ---
 
@@ -37,10 +39,6 @@ Keyword count in different languages
 * 109 C++
 
 ---
-
-## Why Go
-
-Because Go is **easy to read** (explicit, gofmt)
 
 ---
 
