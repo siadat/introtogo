@@ -151,6 +151,12 @@ Output
 
 ## Channel
 
+![Channel](/goroutine-broker.png)
+
+---
+
+## Channel
+
 * Think of it as a **broker**
 * Buffer size = number of items it can hold
 * Based on Tony Hoare's CSP (1977)
