@@ -1,7 +1,14 @@
 ## Concurrency
 
-* Parallelism
-* Concurrency
+* Parallelism: simultaneous running of funcs
+* Concurrency: coordination of independently running funcs
+
+---
+
+## Concurrency
+
+* Parallelism: goroutines
+* Concurrency: channels
 
 ---
 
