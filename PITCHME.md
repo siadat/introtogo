@@ -40,8 +40,6 @@ Keyword count in different languages
 
 ---
 
----
-
 ## Why Go
 
 More reasons?
