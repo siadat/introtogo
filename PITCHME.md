@@ -144,6 +144,16 @@ func main() {
 
 ## Concurrency: quiz
 
+Output
+
+```
+
+```
+
+---
+
+## Concurrency: quiz
+
 ```go
 func main() {
   var wg sync.WaitGroup
@@ -162,6 +172,25 @@ func main() {
 
 ## Concurrency: quiz
 
+Output
+
+```
+10
+10
+10
+10
+10
+10
+10
+10
+10
+7
+```
+
+---
+
+## Concurrency: quiz
+
 ```go
 func main() {
   var wg sync.WaitGroup
@@ -174,6 +203,25 @@ func main() {
   }
   wg.Wait()
 }
+```
+
+---
+
+## Concurrency: quiz
+
+Output
+
+```
+1
+9
+6
+7
+4
+5
+2
+8
+3
+0
 ```
 
 ---
@@ -279,6 +327,47 @@ ch := make(chan int, 10)
 
 * Sender: blocked when filled
 * Receiver: blocked when empty
+
+---
+
+## Concurrency: quiz (using channels)
+
+```go
+func main() {
+	ch := make(chan struct{})
+	for i := 0; i < 10; i++ {
+		go func(i int) {
+			defer func() {
+				ch <- struct{}{}
+			}()
+			fmt.Println(i)
+		}(i)
+	}
+
+	for i := 0; i < 10; i++ {
+		<-ch
+	}
+}
+```
+
+---
+
+## Concurrency: quiz (using channels)
+
+Output
+
+```
+0
+9
+6
+7
+8
+3
+2
+4
+1
+5
+```
 
 ---
 ## Writing Tests
