@@ -11,6 +11,6 @@
 
 * Thank you!
 
-Slides at [gitpitch.com/siadat/introtogo](https://gitpitch.com/siadat/introtogo)
+Slides available at [gitpitch.com/siadat/introtogo](https://gitpitch.com/siadat/introtogo)
 
 ---
