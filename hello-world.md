@@ -18,6 +18,9 @@ A complete program at
 
 ### Build and run
 
+* build
+* run
+
 ```shell
 $ go run hello.go
 hello world!
