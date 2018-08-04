@@ -1,6 +1,6 @@
 ## Concurrency
 
-* Parallelism: simultaneous running of funcs
+* Parallelism: simultaneous running funcs
 * Concurrency: coordination of independently running funcs
 
 ---
